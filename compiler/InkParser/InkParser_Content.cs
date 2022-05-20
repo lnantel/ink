@@ -52,6 +52,9 @@ namespace Ink
                     }
                 }
             }
+            else {
+                Warning("This line has no tags. Did you forget to add a #LINEID ?");
+            }
 
             if (result == null || result.Count == 0)
                 return null;
