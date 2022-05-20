@@ -28,6 +28,14 @@ namespace Ink
                     continue;
                 }
 
+                // Tag argument:
+                //   '#TAG: arg' format
+                else if(ParseString(":") != null){
+                    Whitespace();
+                    Expect(ContentText, "argument after ':'");
+                    continue;
+                }
+
                 break;
             } while ( true );
 
@@ -44,7 +52,7 @@ namespace Ink
             return tags.Cast<Parsed.Tag>().ToList();
         }
 
-        CharacterSet _endOfTagCharSet = new CharacterSet ("#\n\r\\");
+        CharacterSet _endOfTagCharSet = new CharacterSet ("#\n\r\\:");
     }
 }
 
